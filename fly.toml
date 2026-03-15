@@ -1,0 +1,20 @@
+app = "searching"
+primary_region = "sin"
+
+[build]
+  image = "searxng/searxng"
+
+[env]
+  SEARXNG_SAFE_SEARCH = "0"
+  SEARXNG_BIND_ADDRESS = "0.0.0.0:8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+
+[[vm]]
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1

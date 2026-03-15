@@ -76,11 +76,12 @@ search:
   # formats: [html, csv, json, rss]
   formats:
     - html
+    - json              # 👈 add this line
 
 server:
   # Is overwritten by ${SEARXNG_PORT} and ${SEARXNG_BIND_ADDRESS}
-  port: 8888
-  bind_address: "127.0.0.1"
+  port: 8080
+  bind_address: "0.0.0.0"
   # public URL of the instance, to ensure correct inbound links. Is overwritten
   # by ${SEARXNG_BASE_URL}.
   base_url: false  # "http://example.com/location"
@@ -94,16 +95,16 @@ server:
   # If your instance owns a /etc/searxng/settings.yml file, then set the following
   # values there.
 
-  secret_key: "ultrasecretkey"  # Is overwritten by ${SEARXNG_SECRET}
+  secret_key: "replacewithyourownrandomstring123"  # Is overwritten by ${SEARXNG_SECRET}
   # Proxy image results through SearXNG. Is overwritten by ${SEARXNG_IMAGE_PROXY}
-  image_proxy: false
+  image_proxy: true
   # 1.0 and 1.1 are supported
-  http_protocol_version: "1.0"
+  http_protocol_version: "1.1"
   # POST queries are "more secure!" but are also the source of hard-to-locate
   # annoyances, which is why GET may be better for end users and their browsers.
   # see https://github.com/searxng/searxng/pull/3619
   # Is overwritten by ${SEARXNG_METHOD}
-  method: "POST"
+  method: "GET"
   default_http_headers:
     X-Content-Type-Options: nosniff
     X-Download-Options: noopen
@@ -469,14 +470,14 @@ engines:
     categories: [general]
     engine: baidu
     shortcut: bd
-    disabled: true
+    disabled: false
 
   - name: baidu images
     baidu_category: images
     categories: [images]
     engine: baidu
     shortcut: bdi
-    disabled: true
+    disabled: false
 
   - name: baidu kaifa
     baidu_category: it
@@ -517,7 +518,7 @@ engines:
   - name: bitchute
     engine: bitchute
     shortcut: bit
-    disabled: true
+    disabled: false
 
   - name: bitbucket
     engine: xpath
@@ -801,7 +802,7 @@ engines:
   - name: duckduckgo weather
     engine: duckduckgo_weather
     shortcut: ddw
-    disabled: true
+    disabled: false
 
   - name: apple maps
     engine: apple_maps
@@ -1033,14 +1034,14 @@ engines:
     categories: [files, apps]
     shortcut: gpa
     play_categ: apps
-    disabled: true
+    disabled: false
 
   - name: google play movies
     engine: google_play
     categories: videos
     shortcut: gpm
     play_categ: movies
-    disabled: true
+    disabled: false
 
   - name: grokipedia
     engine: grokipedia
@@ -1141,7 +1142,7 @@ engines:
   - name: imgur
     engine: imgur
     shortcut: img
-    disabled: true
+    disabled: false
 
   - name: ina
     engine: ina
@@ -1784,7 +1785,7 @@ engines:
     engine: reddit
     shortcut: re
     page_size: 25
-    disabled: true
+    disabled: false
 
   - name: reuters
     engine: reuters
