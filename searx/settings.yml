@@ -170,17 +170,17 @@ ui:
 #
 outgoing:
   # default timeout in seconds, can be override by engine
-  request_timeout: 3.0
+  request_timeout: 6.0
   # the maximum timeout in seconds
-  # max_request_timeout: 10.0
+  max_request_timeout: 15.0
   # suffix of searxng_useragent, could contain information like an email address
   # to the administrator
   useragent_suffix: ""
   # The maximum number of concurrent connections that may be established.
-  pool_connections: 100
+  pool_connections: 200
   # Allow the connection pool to maintain keep-alive connections below this
   # point.
-  pool_maxsize: 20
+  pool_maxsize: 30
   # See https://www.python-httpx.org/http2/
   enable_http2: true
   # uncomment below section if you want to use a custom server certificate
@@ -484,7 +484,7 @@ engines:
     categories: [it]
     engine: baidu
     shortcut: bdk
-    disabled: true
+    disabled: false
 
   - name: wikipedia
     engine: wikipedia
@@ -501,7 +501,7 @@ engines:
   - name: bing
     engine: bing
     shortcut: bi
-    disabled: true
+    disabled: false
 
   - name: bing images
     engine: bing_images
@@ -1596,14 +1596,14 @@ engines:
     pixabay_type: images
     categories: images
     shortcut: pixi
-    disabled: true
+    disabled: false
 
   - name: pixabay videos
     engine: pixabay
     pixabay_type: videos
     categories: videos
     shortcut: pixv
-    disabled: true
+    disabled: false
 
   - name: pixiv
     shortcut: pv
@@ -1725,14 +1725,14 @@ engines:
     categories: [images]
     engine: quark
     shortcut: qki
-    disabled: true
+    disabled: false
 
   - name: qwant
     qwant_categ: web
     engine: qwant
     shortcut: qw
     categories: [general, web]
-    disabled: true
+    disabled: false
 
   - name: qwant news
     qwant_categ: news
@@ -1746,14 +1746,14 @@ engines:
     engine: qwant
     shortcut: qwi
     categories: [images, web]
-    network: qwant
+    network: false
 
   - name: qwant videos
     qwant_categ: videos
     engine: qwant
     shortcut: qwv
     categories: [videos, web]
-    network: qwant
+    network: false
 
   # - name: library
   #   engine: recoll
@@ -2076,7 +2076,7 @@ engines:
     categories: general
     search_type: web
     shortcut: yd
-    disabled: true
+    disabled: false
 
   - name: yandex images
     engine: yandex
@@ -2084,7 +2084,7 @@ engines:
     categories: images
     search_type: images
     shortcut: ydi
-    disabled: true
+    disabled: false
 
   - name: yandex music
     engine: yandex_music
@@ -2096,7 +2096,7 @@ engines:
   - name: yahoo
     engine: yahoo
     shortcut: yh
-    disabled: true
+    disabled: false
 
   - name: yahoo news
     engine: yahoo_news
@@ -2112,7 +2112,7 @@ engines:
     engine: youtube_api
     # api_key: ''  # required!
     shortcut: yta
-    inactive: true
+    inactive: false
 
   - name: dailymotion
     engine: dailymotion
@@ -2328,7 +2328,7 @@ engines:
     shortcut: mjk
     engine: mojeek
     categories: [general, web]
-    disabled: true
+    disabled: false
 
   - name: mojeek images
     shortcut: mjkimg
@@ -2336,7 +2336,7 @@ engines:
     categories: [images, web]
     search_type: images
     paging: false
-    disabled: true
+    disabled: false
 
   - name: mojeek news
     shortcut: mjknews
@@ -2538,7 +2538,7 @@ engines:
     engine: braveapi
     # read https://docs.searxng.org/dev/engines/online/brave.html
     api_key: ""
-    inactive: true
+    inactive: false
 
   - name: brave
     engine: brave
@@ -2583,7 +2583,7 @@ engines:
   - name: lib.rs
     shortcut: lrs
     engine: lib_rs
-    disabled: true
+    disabled: false
 
   - name: sourcehut
     shortcut: srht
